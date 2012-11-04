@@ -1,0 +1,1 @@
+﻿package utils.capabilities{	import flash.system.Capabilities;	/**	 * Indicates whether the running OS is a Mac	 * @return	 */	public function isAndroid():Boolean	{		return Capabilities.version.toLowerCase().indexOf("and") != -1;	}}

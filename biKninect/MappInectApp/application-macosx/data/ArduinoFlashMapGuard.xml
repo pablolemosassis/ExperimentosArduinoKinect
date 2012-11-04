@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mappings>	
+	<mappingset id="FlashArduino">
+	
+		<mapping id="tu">
+			
+				<processor type="boolean" effect="trigger" filter="greater_than">
+					<element type="joint" target="left_hand" property="position" axis="x" />
+					<element type="value" value="200" />
+			</processor>
+			
+			<output>
+				<midi type="controller" channel="3" valueMap="1" />
+				<osc host="127.0.0.1" address="/canal2" port="4444" />
+			</output>
+		</mapping>
+		
+		<mapping id="tchi">
+			
+				<processor type="boolean" effect="trigger" filter="greater_than">
+					<element type="joint" target="right_hand" property="position" axis="x" />
+					<element type="value" value="400" />
+			</processor>
+			
+			<output>
+				<midi type="controller" channel="3" valueMap="1" />
+				<osc host="127.0.0.1" address="/canal6" port="4444" />
+			</output>
+		</mapping>
+		
+		<mapping id="pii">
+			<processor type="boolean" effect="trigger" filter="greater_than">
+					<element type="joint" target="left_hand" property="position" axis="y" />
+					<element type="value" value="200" />
+			</processor>
+			
+			
+			<output>
+				<midi type="controller" channel="3" valueMap="1" />
+				<osc host="127.0.0.1" address="/canal9" port="4444" />
+			</output>
+		</mapping>
+		
+	</mappingset>
+</mappings>

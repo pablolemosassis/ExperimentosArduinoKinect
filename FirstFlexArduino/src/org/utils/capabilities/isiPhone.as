@@ -1,0 +1,1 @@
+﻿package utils.capabilities{	import flash.system.Capabilities;	/**	 * Indicates whether the running OS is a Mac	 * @return	 */	public function isiPhone():Boolean	{		return Capabilities.os.toLowerCase().indexOf("iphone") != -1;	}}

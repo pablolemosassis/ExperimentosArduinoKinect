@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mappings>	
+	<mappingset id="FlashArduino">
+	
+		<mapping id="tu">
+			
+			<processor type="conditionnal" effect="trigger"  label="tu">			
+				<processor type="boolean" filter="greater_than" >					
+					<processor type="distance">
+						<element type="joint" target="left_hand" property="position" />
+						<element type="joint" target="torso" property="position" />
+					</processor>
+					
+					<processor type="direct">
+						<element type="value" value="650"/>
+					</processor>					
+				</processor>				
+			</processor>
+			
+			<output>
+				<midi type="controller" channel="3" valueMap="1" />
+				<osc host="127.0.0.1" address="/canal2" port="4444" />
+			</output>
+		</mapping>
+		
+		<mapping id="tchi">
+			
+			<processor type="conditionnal" effect="trigger"  label="tchi">			
+				<processor type="boolean" filter="greater_than" >					
+					<processor type="distance">
+						<element type="joint" target="right_hand" property="position" />
+						<element type="joint" target="torso" property="position" />
+					</processor>
+					
+					<processor type="direct">
+						<element type="value" value="650"/>
+					</processor>					
+				</processor>				
+			</processor>
+			
+			<output>
+				<midi type="controller" channel="3" valueMap="1" />
+				<osc host="127.0.0.1" address="/canal6" port="4444" />
+			</output>
+		</mapping>
+		
+		<mapping id="pii">
+			<processor type="boolean" filter="less_than" effect="trigger" label="Pii">
+				<processor type="distance" >
+					<element type="joint" target="left_elbow" property="position" />
+					<element type="joint" target="right_elbow" property="position" />
+				</processor>
+				<processor type="direct" >
+					<element type="value" value="200" />
+				</processor>
+			</processor>
+			
+			
+			<output>
+				<midi type="controller" channel="3" valueMap="1" />
+				<osc host="127.0.0.1" address="/canal9" port="4444" />
+			</output>
+		</mapping>
+		
+	</mappingset>
+</mappings>
