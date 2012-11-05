@@ -5,6 +5,8 @@
 	
 	<!-- OSC SETTINGS -->
 	<osc active="true" method="udp" inPort="4000" outPort="4444" host="127.0.0.1" addressPrefix="/mappInect" /> <!-- OSC DEFAULT SETTINGS. Method can only be "udp" at this time. -->
+	<!-- Tentativa de unir o kinect com TOUCHOSC -->
+	<!--<osc active="true" method="udp" inPort="4000" outPort="3333" host="0.0.0.0" addressPrefix="/mappInect" />-->
 	
 	<!-- DMX SETTINGS -->
 	<dmx active="true" hardware="dmxpro" port="COM3" baudrate="115000" numChannels="512" />
