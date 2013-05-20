@@ -1,0 +1,24 @@
+# Example configuration file for serproxy on Mac OS X
+# For use with Firmata 2.0
+
+# Do not Transform newlines coming from the serial port into nils
+newlines_to_nils=false
+
+# Comm ports used
+comm_ports=1
+
+# Default settings for Firmata 2.0
+comm_baud=115200
+comm_databits=8
+comm_stopbits=1
+comm_parity=none
+
+# Idle time out in seconds
+timeout=300
+
+# Set TCP port and serial port
+# you will have to change serial_device to reflect your configuration
+# use "ls /dev/cu.usb*" to look for your Arduino serial port.
+net_port1=5331
+serial_device1=/dev/cu.usbserial-A1001NZS
+
