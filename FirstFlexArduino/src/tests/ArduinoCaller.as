@@ -22,7 +22,9 @@ package tests
 		private var apaga2 : TweenLite = new TweenLite(apagaEssaLuz, 0, {});
 		private var apaga6 : TweenLite = new TweenLite(apagaEssaLuz, 0, {});
 		private var apaga9 : TweenLite = new TweenLite(apagaEssaLuz, 0, {});
-		private var tweensDict:Vector.<TweenLite> = new <TweenLite> [apaga2, apaga6, apaga9];
+		private var apaga8 : TweenLite = new TweenLite(apagaEssaLuz, 0, {});
+		private var apaga7 : TweenLite = new TweenLite(apagaEssaLuz, 0, {});
+		private var tweensDict:Vector.<TweenLite> = new <TweenLite> [apaga2, apaga6, apaga9, apaga8, apaga7];
 		private var tempoPraApagar:Number = 0.32;
 		
 		public function ArduinoCaller()
@@ -30,6 +32,7 @@ package tests
 			
 		}
 		public function init():void{
+			trace("init arduino");
 			// connect to a serial proxy on port 5331
 			a = new ArduinoWithServo("127.0.0.1", 5331);
 			
@@ -62,9 +65,30 @@ package tests
 		{   trace("- Connection with Arduino - Firmata version: " + String(e.value)); 		
 			trace("- Set default pin configuration.");
 			
+			/*ARDUINO CODE
+			// The EL channels are on pins 2 through 9
+			// Initialize the pins as outputs
+			pinMode(2, OUTPUT);  // channel A  
+			pinMode(3, OUTPUT);  // channel B   
+			pinMode(4, OUTPUT);  // channel C
+			pinMode(5, OUTPUT);  // channel D    
+			pinMode(6, OUTPUT);  // channel E
+			pinMode(7, OUTPUT);  // channel F
+			pinMode(8, OUTPUT);  // channel G
+			pinMode(9, OUTPUT);  // channel H
+			// We also have two status LEDs, pin 10 on the Escudo, 
+			// and pin 13 on the Arduino itself
+			pinMode(10, OUTPUT);     
+			pinMode(13, OUTPUT);
+			*/
+			
 			a.setPinMode(2, Arduino.OUTPUT);
 			a.setPinMode(6, Arduino.OUTPUT);
 			a.setPinMode(9, Arduino.OUTPUT);
+			a.setPinMode(8, Arduino.OUTPUT);
+			a.setPinMode(7, Arduino.OUTPUT);
+			//
+			a.setPinMode(13, Arduino.OUTPUT);
 			
 			// for digital pins its only one setting
 			a.enableDigitalPinReporting();	
@@ -80,9 +104,13 @@ package tests
 		private function facaSeALuz(canal:uint):void{
 			switch(canal){
 				case 2:
-					a.writeDigitalPin(2,1);
+					/*a.writeDigitalPin(2,1);
 					tweensDict[0].kill();
-					tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[2], delay:tempoPraApagar});
+					tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[2], delay:tempoPraApagar});*/
+					trace("13 luz");
+					a.writeDigitalPin(13,1);
+					tweensDict[0].kill();
+					tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[13], delay:tempoPraApagar});
 					break;
 				case 6:
 					a.writeDigitalPin(6,1);
@@ -94,7 +122,16 @@ package tests
 					tweensDict[2].kill();
 					tweensDict[2] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[9], delay:tempoPraApagar});
 					break;
-				
+				case 8:
+					a.writeDigitalPin(8,1);
+					tweensDict[3].kill();
+					tweensDict[3] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[8], delay:tempoPraApagar});
+					break;
+				case 7:
+					a.writeDigitalPin(7,1);
+					tweensDict[4].kill();
+					tweensDict[4] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[7], delay:tempoPraApagar});
+					break;
 			}
 			
 			

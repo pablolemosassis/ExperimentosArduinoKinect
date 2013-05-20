@@ -24,7 +24,8 @@ package tests
 			//Using the UDPConnector (which is highly recommended due to better performance) 
 			//In TUIOPad or TOUCHOSC you have to set the IP field to your PCs IP 
 			//In your as3 project you have to init the UDPConnector with the IP “0.0.0.0” and the port given in the TUIOPad app 
-			manager = new OSCManager(new UDPConnector("0.0.0.0", 3333));
+			//manager = new OSCManager(new UDPConnector("0.0.0.0", 3333));
+			manager = new OSCManager(new UDPConnector("0.0.0.0", 3333), new UDPConnector("0.0.0.0", 4444));
 			manager.addMsgListener(this);
 			//
 			despachaGeral = _despachaGeral;
@@ -45,6 +46,11 @@ package tests
 					despachaGeral(9);
 				}
 				
+				/*var myMsg:OSCMessage = new OSCMessage();
+				myMsg.address = "/my/msg/target";
+				myMsg.addArgument("s", "Hello World");
+				
+				manager.sendOSCPacket(myMsg);*/
 			}
 			
 			

@@ -66,7 +66,16 @@ package
 				//tecla 3
 					despachaGeral(9);
 					break;
-				//				
+				//
+				case 52:
+					//tecla 4
+					despachaGeral(8);
+					break;
+				//
+				case 53:
+					//tecla 5
+					despachaGeral(7);
+					break;
 			}
 		}
 		
