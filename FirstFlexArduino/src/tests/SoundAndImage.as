@@ -85,6 +85,7 @@ package tests
 				imagesArray[i].x = stage.stageWidth/2;
 				imagesArray[i].y = stage.stageHeight/2;
 				addChild(imagesArray[i]);
+				imagesArray[i].alpha = 0;
 			}
 			addChild(imagesArray[0]);
 			

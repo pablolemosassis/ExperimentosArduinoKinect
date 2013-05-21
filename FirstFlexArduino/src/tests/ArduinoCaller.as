@@ -1,5 +1,45 @@
 package tests
 {
+	import com.greensock.*;
+	import com.greensock.easing.*;
+	import com.quetwo.Arduino.ArduinoConnector;
+	import com.quetwo.Arduino.ArduinoConnectorEvent;
+	
+	import flash.events.Event;
+	import flash.events.IOErrorEvent;
+	
+	import org.osflash.signals.Signal;
+	
+		
+	public class ArduinoCaller
+	{	
+		public var keyboardSignal:Signal = new Signal(int);
+		//
+		public var arduino:ArduinoConnector;
+		
+		public function ArduinoCaller(){
+			
+		}
+		public function init():void{
+			arduino = new ArduinoConnector();
+			trace(arduino.getComPorts());
+			var port:String = arduino.getComPorts()[0];
+			arduino.connect(port, 57600);
+		}
+		protected function closeApp(event:Event):void{
+			arduino.dispose();
+		}
+	
+	//end of class
+	}
+	
+//end of package
+}
+
+/////old non-native as3glue
+
+/*package tests
+{
 	import flash.events.IOErrorEvent;
 	import flash.events.Event;
 	
@@ -29,7 +69,7 @@ package tests
 		
 		public function ArduinoCaller()
 		{
-			
+		
 		}
 		public function init():void{
 			trace("init arduino");
@@ -42,7 +82,7 @@ package tests
 			
 			// listen for firmware (sent on startup)
 			a.addEventListener(ArduinoEvent.FIRMWARE_VERSION, onReceiveFirmwareVersion);
-			
+		
 		}
 		//
 		// == SETUP AND INITIALIZE CONNECTION ( don't modify ) ==================================
@@ -56,31 +96,33 @@ package tests
 		// triggered when a serial socket connection has been established
 		private function onSocketConnect(e:Object):void 
 		{	trace("- Connection with Serproxy established. Wait one moment.");
-			
-			// request the firmware version
-			a.requestFirmwareVersion();	
+		
+		// request the firmware version
+		a.requestFirmwareVersion();	
 		}
 		
 		private function onReceiveFirmwareVersion(e:ArduinoEvent):void 
 		{   trace("- Connection with Arduino - Firmata version: " + String(e.value)); 		
 			trace("- Set default pin configuration.");
 			
-			/*ARDUINO CODE
+			//ARDUINO CODE
 			// The EL channels are on pins 2 through 9
 			// Initialize the pins as outputs
-			pinMode(2, OUTPUT);  // channel A  
-			pinMode(3, OUTPUT);  // channel B   
-			pinMode(4, OUTPUT);  // channel C
-			pinMode(5, OUTPUT);  // channel D    
-			pinMode(6, OUTPUT);  // channel E
-			pinMode(7, OUTPUT);  // channel F
-			pinMode(8, OUTPUT);  // channel G
-			pinMode(9, OUTPUT);  // channel H
+			
+			//pinMode(2, OUTPUT);  // channel A  
+			//pinMode(3, OUTPUT);  // channel B   
+			//pinMode(4, OUTPUT);  // channel C
+			//pinMode(5, OUTPUT);  // channel D    
+			//pinMode(6, OUTPUT);  // channel E
+			//pinMode(7, OUTPUT);  // channel F
+			//pinMode(8, OUTPUT);  // channel G
+			//pinMode(9, OUTPUT);  // channel H
 			// We also have two status LEDs, pin 10 on the Escudo, 
 			// and pin 13 on the Arduino itself
-			pinMode(10, OUTPUT);     
-			pinMode(13, OUTPUT);
-			*/
+			
+			//pinMode(10, OUTPUT);     
+			//pinMode(13, OUTPUT);
+			///
 			
 			a.setPinMode(2, Arduino.OUTPUT);
 			a.setPinMode(6, Arduino.OUTPUT);
@@ -97,49 +139,45 @@ package tests
 		}
 		//
 		private function startProgram():void{
-			//
+		//
 			keyboardSignal.add(facaSeALuz);
 			a.writeDigitalPin(10, 0);
-		}
-		private function facaSeALuz(canal:uint):void{
-			switch(canal){
-				case 2:
-					/*a.writeDigitalPin(2,1);
-					tweensDict[0].kill();
-					tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[2], delay:tempoPraApagar});*/
-					trace("13 luz");
-					a.writeDigitalPin(13,1);
-					tweensDict[0].kill();
-					tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[13], delay:tempoPraApagar});
-					break;
-				case 6:
-					a.writeDigitalPin(6,1);
-					tweensDict[1].kill();
-					tweensDict[1] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[6], delay:tempoPraApagar});
-					break;
-				case 9:
-					a.writeDigitalPin(9,1);
-					tweensDict[2].kill();
-					tweensDict[2] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[9], delay:tempoPraApagar});
-					break;
-				case 8:
-					a.writeDigitalPin(8,1);
-					tweensDict[3].kill();
-					tweensDict[3] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[8], delay:tempoPraApagar});
-					break;
-				case 7:
-					a.writeDigitalPin(7,1);
-					tweensDict[4].kill();
-					tweensDict[4] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[7], delay:tempoPraApagar});
-					break;
 			}
-			
-			
+			private function facaSeALuz(canal:uint):void{
+			switch(canal){
+			case 2:
+			a.writeDigitalPin(2,1);
+			tweensDict[0].kill();
+			tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[2], delay:tempoPraApagar});
+			break;
+			case 6:
+			a.writeDigitalPin(6,1);
+			tweensDict[1].kill();
+			tweensDict[1] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[6], delay:tempoPraApagar});
+			break;
+			case 9:
+			a.writeDigitalPin(9,1);
+			tweensDict[2].kill();
+			tweensDict[2] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[9], delay:tempoPraApagar});
+			break;
+			case 8:
+			a.writeDigitalPin(8,1);
+			tweensDict[3].kill();
+			tweensDict[3] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[8], delay:tempoPraApagar});
+			break;
+			case 7:
+			a.writeDigitalPin(7,1);
+			tweensDict[4].kill();
+			tweensDict[4] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[7], delay:tempoPraApagar});
+			break;
+		}
+		
+		
 		}
 		private function apagaEssaLuz(canal:uint):void{
 			if(canal){
-				a.writeDigitalPin(canal,0);
-			}
+			a.writeDigitalPin(canal,0);
+		}
 		}
 	}
-}
+}*/

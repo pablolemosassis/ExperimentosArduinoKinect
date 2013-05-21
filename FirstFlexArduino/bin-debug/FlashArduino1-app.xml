@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<application xmlns="http://ns.adobe.com/air/application/3.3">
+<!-- <application xmlns="http://ns.adobe.com/air/application/3.3"> -->
+<application xmlns="http://ns.adobe.com/air/application/3.7">
 
 <!-- Adobe AIR Application Descriptor File Template.
 
@@ -120,6 +121,7 @@
 	<!-- (i.e., to only mobile devices) then add this element and list -->
 	<!-- only the profiles which your application does support. -->
 	<!-- <supportedProfiles>desktop extendedDesktop mobileDevice extendedMobileDevice</supportedProfiles> -->
+	<supportedProfiles>extendedDesktop</supportedProfiles>
 
 	<!-- Languages supported by application -->
 	<!-- Only these languages can be specified -->
@@ -238,4 +240,9 @@
     <!-- </android> -->
 	<!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
 
+
+
+<extensions>
+        <extensionID>com.quetwo.Arduino.ArduinoConnector</extensionID>
+    </extensions>
 </application>

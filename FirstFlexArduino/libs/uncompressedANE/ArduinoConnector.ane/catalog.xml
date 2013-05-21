@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<swc xmlns="http://www.adobe.com/flash/swccatalog/9">
+  <versions>
+    <swc version="1.2" />
+    <flex version="4.9.1" build="1447119" minimumSupportedVersion="3.0.0" />
+  </versions>
+  <features>
+    <feature-script-deps />
+    <feature-files />
+  </features>
+  <libraries>
+    <library path="library.swf">
+      <script name="com/quetwo/Arduino/ArduinoConnector" mod="1366601367524" signatureChecksum="4017900256" >
+        <def id="com.quetwo.Arduino:ArduinoConnector" /> 
+        <dep id="com.quetwo.Arduino:ArduinoConnectorEvent" type="e" /> 
+        <dep id="flash.utils:ByteArray" type="e" /> 
+        <dep id="trace" type="e" /> 
+        <dep id="flash.events:StatusEvent" type="e" /> 
+        <dep id="flash.external:ExtensionContext" type="e" /> 
+        <dep id="Error" type="e" /> 
+        <dep id="com.quetwo.Arduino:ArduinoConnectorEvent" type="s" /> 
+        <dep id="flash.utils:ByteArray" type="s" /> 
+        <dep id="flash.events:StatusEvent" type="s" /> 
+        <dep id="flash.external:ExtensionContext" type="s" /> 
+        <dep id="Error" type="s" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:EventDispatcher" type="i" /> 
+      </script>
+      <script name="com/quetwo/Arduino/ArduinoConnectorEvent" mod="1366601367517" signatureChecksum="1571770924" >
+        <def id="com.quetwo.Arduino:ArduinoConnectorEvent" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.events:ProgressEvent" type="i" /> 
+      </script>
+      <script name="_8cfac5969b4f68b5300878aa8547839767e35a6e4e264ba5e48764d929eb9854_flash_display_Sprite" mod="1366602730479" signatureChecksum="2755623211" >
+        <def id="_8cfac5969b4f68b5300878aa8547839767e35a6e4e264ba5e48764d929eb9854_flash_display_Sprite" /> 
+        <dep id="flash.system:Security" type="e" /> 
+        <dep id="AS3" type="n" /> 
+        <dep id="flash.display:Sprite" type="i" /> 
+      </script>
+      <digests>
+        <digest type="SHA-256" signed="false" value="48578064d71ae4c484eaf294cf8893e75ce2fa04c2e6b167ca9182202b17fcd1"   />
+      </digests>
+    </library>
+  </libraries>
+  <files>
+  </files>
+</swc>
