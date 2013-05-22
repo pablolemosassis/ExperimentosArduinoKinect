@@ -22,12 +22,37 @@ package tests
 		}
 		public function init():void{
 			arduino = new ArduinoConnector();
-			trace(arduino.getComPorts());
+			trace("onlyRegular Arduino Ports: " + arduino.getComPorts());
+			//trace("All Ports: " + arduino.getComPorts(true, true));
+			trace("All Ports length: " + arduino.getComPorts(true, true).length);
 			var port:String = arduino.getComPorts()[0];
+			//var port:String = arduino.getComPorts(true,true)[(arduino.getComPorts(true,true).length)-1];
+			trace("Choosen port: " + port);
 			arduino.connect(port, 57600);
+			arduino.addEventListener("socketData", fnc_dataArduino);
+			//
+			keyboardSignal.add(facaSeALuz);
+		}
+		private function fnc_dataArduino(e: ArduinoConnectorEvent): void{
+			trace("From Arduino: " + arduino.readBytesAsString());
 		}
 		protected function closeApp(event:Event):void{
 			arduino.dispose();
+		}
+		////////
+		
+		private function facaSeALuz(canal:uint):void{
+			trace("canal: "+ canal);
+		
+			switch(canal){
+				case 2:
+					trace('arduino.writeString("I"): ' + arduino.writeString("I"));
+					break;
+				case 6:
+					trace('arduino.writeString("M"): ' + arduino.writeString("M"));
+					break;
+				
+			}
 		}
 	
 	//end of class
