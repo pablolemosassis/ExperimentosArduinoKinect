@@ -40,17 +40,64 @@ package tests
 			arduino.dispose();
 		}
 		////////
-		
+		private function writeAndTrace(l:String):void{
+			trace('arduino.writeString("' + l + '"): ' + arduino.writeString(l));
+		}
 		private function facaSeALuz(canal:uint):void{
 			trace("canal: "+ canal);
 		
 			switch(canal){
 				case 2:
-					trace('arduino.writeString("I"): ' + arduino.writeString("I"));
+					writeAndTrace("R");
+					//
+					writeAndTrace("A");
+					writeAndTrace("B");
+					writeAndTrace("C");
+					writeAndTrace("D");
+					writeAndTrace("E");
+					writeAndTrace("F");
+					writeAndTrace("G");
+					writeAndTrace("H");
+					
 					break;
 				case 6:
-					trace('arduino.writeString("M"): ' + arduino.writeString("M"));
+					writeAndTrace("T");
+					//
+					writeAndTrace("I");
+					writeAndTrace("J");
+					writeAndTrace("L");
+					writeAndTrace("M");
+					writeAndTrace("N");
+					writeAndTrace("O");
+					writeAndTrace("P");
+					writeAndTrace("Q");
 					break;
+				////////
+				/*case 2:
+					a.writeDigitalPin(2,1);
+					tweensDict[0].kill();
+					tweensDict[0] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[2], delay:tempoPraApagar});
+					break;
+				case 6:
+					a.writeDigitalPin(6,1);
+					tweensDict[1].kill();
+					tweensDict[1] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[6], delay:tempoPraApagar});
+					break;
+				case 9:
+					a.writeDigitalPin(9,1);
+					tweensDict[2].kill();
+					tweensDict[2] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[9], delay:tempoPraApagar});
+					break;
+				case 8:
+					a.writeDigitalPin(8,1);
+					tweensDict[3].kill();
+					tweensDict[3] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[8], delay:tempoPraApagar});
+					break;
+				case 7:
+					a.writeDigitalPin(7,1);
+					tweensDict[4].kill();
+					tweensDict[4] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[7], delay:tempoPraApagar});
+					break;*/
 				
 			}
 		}

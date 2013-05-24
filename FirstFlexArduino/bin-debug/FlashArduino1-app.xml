@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!-- <application xmlns="http://ns.adobe.com/air/application/3.3"> -->
-<application xmlns="http://ns.adobe.com/air/application/3.7">
+<application xmlns="http://ns.adobe.com/air/application/3.3">
+<!-- <application xmlns="http://ns.adobe.com/air/application/3.7"> -->
 
 <!-- Adobe AIR Application Descriptor File Template.
 
@@ -239,8 +239,6 @@
         <!-- <colorDepth></colorDepth> -->
     <!-- </android> -->
 	<!-- End of the schema for adding the android specific tags in AndroidManifest.xml file -->
-
-
 
 <extensions>
         <extensionID>com.quetwo.Arduino.ArduinoConnector</extensionID>

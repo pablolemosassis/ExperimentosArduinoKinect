@@ -74,7 +74,19 @@ package
 				//
 				case 53:
 					//tecla 5
-					despachaGeral(7);
+					despachaGeral(10);
+					break;
+				case 54:
+					//tecla 6
+					despachaGeral(11);
+					break;
+				case 55:
+					//tecla 7
+					despachaGeral(12);
+					break;
+				case 56:
+					//tecla 8
+					despachaGeral(13);
 					break;
 			}
 		}

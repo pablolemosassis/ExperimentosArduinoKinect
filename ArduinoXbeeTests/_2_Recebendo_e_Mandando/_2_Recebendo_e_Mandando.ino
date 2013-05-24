@@ -51,14 +51,14 @@ void loop() {
     // read the oldest byte in the serial buffer:
     incomingByte = Serial.read();
     // if it's a capital H (ASCII 72), turn on the LED:
-    if (incomingByte == 'H') {
+    if (incomingByte == 'R') {
       digitalWrite(ledPin, HIGH);
-      Serial.print('I');
+      Serial.print('S');
     } 
     // if it's an L (ASCII 76) turn off the LED:
-    if (incomingByte == 'L') {
+    if (incomingByte == 'T') {
       digitalWrite(ledPin, LOW);
-      Serial.print('M');
+      Serial.print('U');
     }
     //EL WIRES
     if (incomingByte == 'A') {
@@ -84,6 +84,31 @@ void loop() {
     }
    if (incomingByte == 'H') {
       digitalWrite(9, HIGH);
+    }
+   //
+  if (incomingByte == 'I') {
+      digitalWrite(2, LOW);
+    }
+   if (incomingByte == 'J') {
+      digitalWrite(3, LOW);
+    }
+   if (incomingByte == 'L') {
+      digitalWrite(4, LOW);
+    }
+   if (incomingByte == 'M') {
+      digitalWrite(5, LOW);
+    }
+   if (incomingByte == 'N') {
+      digitalWrite(6, LOW);
+    }
+   if (incomingByte == 'O') {
+      digitalWrite(7, LOW);
+    }
+   if (incomingByte == 'P') {
+      digitalWrite(8, LOW);
+    }
+   if (incomingByte == 'Q') {
+      digitalWrite(9, LOW);
     } 
   }
 }
