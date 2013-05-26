@@ -32,6 +32,7 @@
       </libraryPathEntry>
       <libraryPathEntry kind="3" linkType="1" path="libs/sonsCompilados.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="3" linkType="1" path="libs/starling.swc" useDefaultLinkType="false"/>
+      <libraryPathEntry kind="3" linkType="1" path="libs/sion056.swc" useDefaultLinkType="false"/>
       <libraryPathEntry kind="5" linkType="2" path="libs/ArduinoConnector.ane"/>
     </libraryPath>
     <sourceAttachmentPath/>

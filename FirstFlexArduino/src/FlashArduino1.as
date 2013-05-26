@@ -23,6 +23,8 @@ package
 		private var mStarling:Starling;
 		private var arduinoCaller:ArduinoCaller = new ArduinoCaller();
 		private var receptorDeOSC:ReceptorDeOSC = new ReceptorDeOSC();
+		private var soundGeneration:SoundGeneration;
+		private var sionSound:SionSound;
 		
 		private var signalsArray:Vector.<Signal>;
 		
@@ -41,6 +43,13 @@ package
 			stage.quality = StageQuality.LOW;
 			//
 			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownListener);
+			stage.addEventListener(KeyboardEvent.KEY_UP, keyUpListener);
+			//
+			/*soundGeneration = new SoundGeneration(stage);
+			addChild(soundGeneration);*/
+			//
+			sionSound = new SionSound();
+			addChild(sionSound);
 			//
 			startStarling();
 			arduinoCaller.init();
@@ -52,41 +61,90 @@ package
 		}
 		
 		private  function keyDownListener(e:KeyboardEvent):void {
-			trace(e.keyCode);
+			trace("keyDownListener: " + e.keyCode);
 			switch(e.keyCode){
 				case 49:
 				//tecla 1
-					despachaGeral(2);
+					despachaGeral(1);
 					break;
 				case 50:
 				//tecla 2
-					despachaGeral(6);
+					despachaGeral(2);
 					break;
 				case 51:
 				//tecla 3
-					despachaGeral(9);
+					despachaGeral(3);
 					break;
 				//
 				case 52:
 					//tecla 4
-					despachaGeral(8);
+					despachaGeral(4);
 					break;
 				//
 				case 53:
 					//tecla 5
-					despachaGeral(10);
+					despachaGeral(5);
 					break;
 				case 54:
 					//tecla 6
-					despachaGeral(11);
+					despachaGeral(6);
 					break;
 				case 55:
 					//tecla 7
-					despachaGeral(12);
+					despachaGeral(7);
 					break;
 				case 56:
 					//tecla 8
-					despachaGeral(13);
+					despachaGeral(8);
+					break;
+				case 57:
+					//tecla 9
+					despachaGeral(9);
+					break;
+				case 48:
+					//tecla 0
+					despachaGeral(0);
+					break;
+				
+			}
+		}
+		//
+		private  function keyUpListener(e:KeyboardEvent):void {
+			trace("keyUpListener: " + e.keyCode);
+			switch(e.keyCode){
+				case 49:
+					//tecla 1
+					despachaGeral(-1);
+					break;
+				case 50:
+					//tecla 2
+					despachaGeral(-2);
+					break;
+				case 51:
+					//tecla 3
+					despachaGeral(-3);
+					break;
+				//
+				case 52:
+					//tecla 4
+					despachaGeral(-4);
+					break;
+				//
+				case 53:
+					//tecla 5
+					despachaGeral(-5);
+					break;
+				case 54:
+					//tecla 6
+					despachaGeral(-6);
+					break;
+				case 55:
+					//tecla 7
+					despachaGeral(-7);
+					break;
+				case 56:
+					//tecla 8
+					despachaGeral(-8);
 					break;
 			}
 		}
@@ -99,7 +157,8 @@ package
 			mStarling.stage3D.addEventListener(Event.CONTEXT3D_CREATE, todoMundoPronto);
 		}
 		private function todoMundoPronto(e:Event):void{
-			signalsArray = new <Signal> [SoundAndImage.current.keyboardSignal, arduinoCaller.keyboardSignal];
+			signalsArray = new <Signal> [SoundAndImage.current.keyboardSignal, arduinoCaller.keyboardSignal, sionSound.keyboardSignal];
+			//
 		}
 		public function despachaGeral(canal:int):void{
 			for(var i:int = 0; i < signalsArray.length; i++)

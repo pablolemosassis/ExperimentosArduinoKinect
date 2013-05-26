@@ -37,13 +37,13 @@ package tests
 				trace(msg.arguments.join(", "));
 				
 				if (msg.address == "/mappInect/canal2" || msg.address == "/7/push1") {
-					despachaGeral(2);
+					despachaGeral(1);
 				}
 				if (msg.address == "/mappInect/canal6" || msg.address == "/7/push5") {
-					despachaGeral(6);
+					despachaGeral(2);
 				}
 				if (msg.address == "/mappInect/canal9" || msg.address == "/7/push9") {
-					despachaGeral(9);
+					despachaGeral(3);
 				}
 				
 				/*var myMsg:OSCMessage = new OSCMessage();

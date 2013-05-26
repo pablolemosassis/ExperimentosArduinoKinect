@@ -42,27 +42,65 @@ package tests
 		////////
 		private function writeAndTrace(l:String):void{
 			trace('arduino.writeString("' + l + '"): ' + arduino.writeString(l));
+			//arduino.flush();
+			
 		}
-		private function facaSeALuz(canal:uint):void{
+		private function facaSeALuz(canal:int):void{
 			trace("canal: "+ canal);
 		
 			switch(canal){
-				case 2:
-					writeAndTrace("R");
-					//
+				//acendendo
+				case 1:
 					writeAndTrace("A");
+					break;
+				case 2:
 					writeAndTrace("B");
+					break;
+				case 3:
 					writeAndTrace("C");
+					break;
+				case 4:
 					writeAndTrace("D");
+					break;
+				case 5:
 					writeAndTrace("E");
-					writeAndTrace("F");
-					writeAndTrace("G");
-					writeAndTrace("H");
-					
 					break;
 				case 6:
-					writeAndTrace("T");
-					//
+					writeAndTrace("F");
+					break;
+				case 7:
+					writeAndTrace("G");
+					break;
+				case 8:
+					writeAndTrace("H");
+					break;
+				//apagando
+				case -1:
+					writeAndTrace("I");
+					break;
+				case -2:
+					writeAndTrace("J");
+					break;
+				case -3:
+					writeAndTrace("L");
+					break;
+				case -4:
+					writeAndTrace("M");
+					break
+				case -5:
+					writeAndTrace("N");
+					break;
+				case -6:
+					writeAndTrace("O");
+					break;
+				case -7:
+					writeAndTrace("P");
+					break;
+				case -8:
+					writeAndTrace("Q");
+					break;
+				//apagando todas
+				case 0:
 					writeAndTrace("I");
 					writeAndTrace("J");
 					writeAndTrace("L");
@@ -99,6 +137,7 @@ package tests
 					tweensDict[4] = new TweenLite(apagaEssaLuz, 0, {onComplete:apagaEssaLuz, onCompleteParams:[7], delay:tempoPraApagar});
 					break;*/
 				
+			//fim do switch
 			}
 		}
 	

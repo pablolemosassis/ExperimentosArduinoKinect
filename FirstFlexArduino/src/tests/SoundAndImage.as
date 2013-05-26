@@ -85,7 +85,7 @@ package tests
 				imagesArray[i].x = stage.stageWidth/2;
 				imagesArray[i].y = stage.stageHeight/2;
 				addChild(imagesArray[i]);
-				imagesArray[i].alpha = 0;
+				//imagesArray[i].alpha = 0;
 			}
 			addChild(imagesArray[0]);
 			
@@ -93,22 +93,22 @@ package tests
         }
 		
 		private function showAndPlay(canal:uint):void{
-			switch(canal){
-				case 2:
+			/*switch(canal){
+				case 1:
 					addChild(imagesArray[1]);
 					soundsArray[1].play();
 					break;
-				case 6:
+				case 2:
 					addChild(imagesArray[2]);
 					soundsArray[2].play();
 					break;
-				case 9:
+				case 3:
 					addChild(imagesArray[3]);
 					soundsArray[3].play();
 					break;
 				//
 				
-			}
+			}*/
 			chamaSilencio.kill();
 			chamaSilencio = new TweenLite(silencioNoApp, 0, {onComplete:silencioNoApp, delay:.32});
 		}
