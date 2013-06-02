@@ -61,7 +61,7 @@ package
 		}
 		
 		private  function keyDownListener(e:KeyboardEvent):void {
-			trace("keyDownListener: " + e.keyCode);
+			//trace("keyDownListener: " + e.keyCode);
 			switch(e.keyCode){
 				case 49:
 				//tecla 1
@@ -110,7 +110,7 @@ package
 		}
 		//
 		private  function keyUpListener(e:KeyboardEvent):void {
-			trace("keyUpListener: " + e.keyCode);
+			//trace("keyUpListener: " + e.keyCode);
 			switch(e.keyCode){
 				case 49:
 					//tecla 1

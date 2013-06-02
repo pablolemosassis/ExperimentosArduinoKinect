@@ -46,7 +46,7 @@ package tests
 			
 		}
 		private function facaSeALuz(canal:int):void{
-			trace("canal: "+ canal);
+			//trace("canal: "+ canal);
 		
 			switch(canal){
 				//acendendo
@@ -99,16 +99,27 @@ package tests
 				case -8:
 					writeAndTrace("Q");
 					break;
+				//acendendo todas
+				case 9:
+					writeAndTrace("ABCDEFG");
+					/*writeAndTrace("B");
+					writeAndTrace("C");
+					writeAndTrace("D");
+					writeAndTrace("E");
+					writeAndTrace("F");
+					writeAndTrace("G");
+					writeAndTrace("H");*/
+					break;
 				//apagando todas
 				case 0:
-					writeAndTrace("I");
-					writeAndTrace("J");
+					writeAndTrace("IJLMNOPQ");
+					/*writeAndTrace("J");
 					writeAndTrace("L");
 					writeAndTrace("M");
 					writeAndTrace("N");
 					writeAndTrace("O");
 					writeAndTrace("P");
-					writeAndTrace("Q");
+					writeAndTrace("Q");*/
 					break;
 				////////
 				/*case 2:

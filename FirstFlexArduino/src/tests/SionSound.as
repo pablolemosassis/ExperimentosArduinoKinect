@@ -33,7 +33,7 @@ package tests
 		}
 		//
 		private function playSounds(canal:int):void{
-			trace("canal: "+ canal);
+			//trace("canal: "+ canal);
 			
 			//"fgab<cdef;"
 			switch(canal){
