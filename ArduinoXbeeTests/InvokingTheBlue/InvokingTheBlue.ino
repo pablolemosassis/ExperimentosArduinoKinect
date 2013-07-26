@@ -20,6 +20,10 @@ int howManyBlinksTotal = 10;
 //if it has blinked more than howManyBlinksTotal, stop blinking
 boolean stopBlinking = false;
 
+int pinNumber = 6;
+//to test with normal arduinos
+//int pinNumber = 13;
+
 
 void setup() {
 
@@ -31,7 +35,7 @@ void setup() {
 			pinMode(4, OUTPUT);  // channel C
 			pinMode(5, OUTPUT);  // channel D 
 
-			pinMode(6, OUTPUT);  // channel E
+			pinMode(pinNumber, OUTPUT);  // channel E
 
 			pinMode(7, OUTPUT);  // channel F
 			pinMode(8, OUTPUT);  // channel G
@@ -45,11 +49,11 @@ void loop() {
   delayZero = 0;
   //
   delay(firstDelay);  
-  digitalWrite(6, HIGH);
+  digitalWrite(pinNumber, HIGH);
   
   delay(secondDelay);  
   if(!stopBlinking){
-    digitalWrite(6, LOW);
+    digitalWrite(pinNumber, LOW);
   }
  
   //descrease how much time it should take untill it lights on again 
